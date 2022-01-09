@@ -1,29 +1,43 @@
-const express = require('express');
-const cors = require('cors');
+  let express = require('express');
+
+let cors = require('cors');
 
 const chessRouters = require('./routes/ecochess.routes');
 
+let app = express();
+let port = 3001;
 
-const app = express();
-const port = 3001;
+(async () => {
 
-app.use(cors());
-app.use(express.json());
+    try{
+        //await mongo.connect();
 
-app.use((req,res,next) => {
-    console.log("Middleware Api called!!!!!!");
-    next();
-})
+        app.use(cors());
+        app.use(express.json());
 
-app.use("/",chessRouters);
+        app.use((req,res,next) => {
+            console.log("Middleware Api called!!!!!!");
+            next();
+        })
 
-        
+        app.use("/chess",chessRouters);
 
 
-app.listen(process.env.PORT || port);
+        app.listen(process.env.PORT || port);
 
-   
+    }catch(err){
+        console.log(err);
+    }
     
+
+
+})();
+
+
+
+
+
+
 
 
 
