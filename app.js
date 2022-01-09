@@ -4,8 +4,8 @@ const cors = require('cors');
 const chessRouters = require('./routes/ecochess.routes');
 
 
-let app = express();
-let port = 3001;
+const app = express();
+const port = 3001;
 
 app.use(cors());
 app.use(express.json());
