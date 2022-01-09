@@ -15,7 +15,7 @@ app.use("/",chessRouters);
         
 
 
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT);
 
    
     
